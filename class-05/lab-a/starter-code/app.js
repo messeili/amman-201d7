@@ -18,7 +18,6 @@ function sum(a, b) { //eslint-disable-line
         'The sum of '+a+' and '+b+' is '+sum+'.'
     ]
 
-    return returnArray;
 }
 
 // Here is the test for sum(); uncomment it to run it
