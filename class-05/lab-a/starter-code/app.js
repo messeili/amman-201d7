@@ -12,10 +12,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-    var sum = a+b;
+    var sum =a+b;
+    var returnArray = [
+        sum,
+        'The sum of '+a+' and '+b+' is '+sum+'.'
+    ]
 
-    var problem1 = [sum,"The sum of " + a + " and " + b + " is " + sum + "."]
-    return problem1;
+    return returnArray;
 }
 
 // Here is the test for sum(); uncomment it to run it
