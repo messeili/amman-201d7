@@ -8,14 +8,20 @@ var Cart = function(items) {
 
 Cart.prototype.addItem = function(product, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
-};
+  var addedItem = new CartItem(product,quantity)
+  this.items.push(addedItem);
+}
 
 Cart.prototype.saveToLocalStorage = function() {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
+  var jsonStringCart = JSON.stringify(cart);
+  localStorage.setItem('localCart',jsonStringCart);
+  console.log(localStorage);
 };
 
 Cart.prototype.removeItem = function(item) {
-  // TODO: Fill in this instance method to remove one item from the cart.
+  // TODO: Fill in
+  // this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
 };
 
@@ -31,6 +37,7 @@ var Product = function(filePath, name) {
   Product.allProducts.push(this);
 };
 Product.allProducts = [];
+
 
 function generateCatalog() {
   new Product('assets/bag.jpg', 'Bag');
@@ -59,9 +66,8 @@ function generateCatalog() {
 // Modal function
 
 var parent = document.getElementById("cartContents");
-
+var secondDiv = document.createElement("div");
 function Modal(){
-  var secondDiv = document.createElement("div")
   secondDiv.setAttribute('id','secondDiv');
   var span = document.createElement("span");
   span.setAttribute('id','span');
@@ -79,11 +85,17 @@ function Modal(){
 
 };
 
+// function parseCart(){
+//   var currentCart = JSON.parse(jsonStringCart);
+//   update(currentCart);
+// }
 
-
-
+// function update(currentCart){
+//   var newCart = currentCart
+// }
 
 
 // Initialize the app by creating the big list of products with images and names
 Modal();
 generateCatalog();
+
