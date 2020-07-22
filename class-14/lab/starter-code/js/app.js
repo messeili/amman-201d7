@@ -55,5 +55,35 @@ function generateCatalog() {
   new Product('assets/wine-glass.jpg', 'Wine Glass');
 }
 
+
+// Modal function
+
+var parent = document.getElementById("cartContents");
+
+function Modal(){
+  var secondDiv = document.createElement("div")
+  secondDiv.setAttribute('id','secondDiv');
+  var span = document.createElement("span");
+  span.setAttribute('id','span');
+  span.innerHTML = 'x';
+  var confirm = document.createElement('p');
+  confirm.setAttribute('id','confirm');
+  confirm.textContent = 'Order Confirmed';
+  var link = document.createElement('a');
+  link.setAttribute('href', 'cart.html');
+  link.innerHTML = 'Shopping cart page';
+  secondDiv.append(span);
+  secondDiv.append(confirm);
+  secondDiv.append(link);
+  parent.append(secondDiv);
+
+};
+
+
+
+
+
+
 // Initialize the app by creating the big list of products with images and names
+Modal();
 generateCatalog();

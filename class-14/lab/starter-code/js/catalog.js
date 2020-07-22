@@ -12,7 +12,9 @@ function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
   var selectElement = document.getElementById('items');
   for (var i in Product.allProducts) {
-
+      var option = document.createElement("option");
+      option.innerHTML = Product.allProducts[i].name;
+      selectElement.append(option);  
   }
 
 }
@@ -22,13 +24,14 @@ function populateForm() {
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
 
-  // TODO: Prevent the page from reloading
 
   // Do all the things ...
+  event.preventDefault()
   addSelectedItemToCart();
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
+  parent.style.display = "block";
 
 }
 
@@ -57,3 +60,11 @@ catalogForm.addEventListener('submit', handleSubmit);
 // Before anything else of value can happen, we need to fill in the select
 // drop down list in the form.
 populateForm();
+span.onclick = function () {
+  parent.style.display = 'none';
+}
+window.onclick = function (event) {
+  if (event.target == parent) {
+    parent.style.display = 'none';
+  };
+};
